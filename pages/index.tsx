@@ -3,7 +3,6 @@ import { Grid } from '@geist-ui/react'
 
 export default function Home() {
 
-  // const []
   return (
     <div>
       <Head>
@@ -12,13 +11,9 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1>
-          Star Date
-        </h1>
         <Grid.Container>
-          <Grid md={12}>
-
-          </Grid>
+          <Grid md={12}>{/* <SolarSystem /> */}</Grid>
+          <Grid md={12}>{/* <Configurations /> */}</Grid>
         </Grid.Container>
       </main>
     </div>
