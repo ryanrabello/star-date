@@ -1,4 +1,5 @@
 import { css } from '@emotion/react'
+import moment from 'moment'
 import useResizeObserver from 'use-resize-observer/polyfilled'
 import {
   PLANET_COUNT,
@@ -31,7 +32,6 @@ export function SolarSystem({ date }: IProps) {
     angle: planetAngles[i],
   }))
 
-  
   return (
     <div ref={ref} css={wrapperStyles}>
       <svg width={'100%'} height={'100%'}>
@@ -48,7 +48,7 @@ export function SolarSystem({ date }: IProps) {
         })}
         {planets.map(({ r, angle }, i) => {
           const x = Math.cos(angle) * r + center[0]
-          const y = Math.sin(angle) * r + center[1]
+          const y = -Math.sin(angle) * r + center[1]
 
           return <circle key={i} cx={x} cy={y} r={10} css={planetStyles} />
         })}

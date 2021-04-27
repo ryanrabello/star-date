@@ -1,6 +1,7 @@
+import moment from 'moment'
 
 export const PLANET_COUNT = 8 // sorry pluto
-const initDate = new Date();
+const initDate = moment('20000101', 'YYYYMMDD')
 const planetData = [
   { initAngle: -0.3013, orbitDays: 88 },
   { initAngle: -1.5568, orbitDays: 224.7 },
@@ -13,9 +14,23 @@ const planetData = [
 ]
 
 export function getPlanetAnglesFromDate(date: Date): number[] {
-    return Array.from(new Array(PLANET_COUNT)).map(() => degToRad(Math.random() * 360 - 180))
+  const mDate = moment(date)
+  const days = mDate.diff(initDate, 'days', true)
+  const angles = planetData.map(({ initAngle, orbitDays }, i) => {
+    const percentOrbit = mod(days / orbitDays, 1);
+    const orbitRad = 2 * Math.PI * percentOrbit + initAngle
+    return orbitRad
+  })
+
+  return angles;
+}
+
+// Mod that follows math better. (Works for negative floating point numbers)
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder
+function mod(a: number, n: number): number {
+  return ((a % n ) + n ) % n;
 }
 
 export function degToRad(deg: number) {
-    return (Math.PI * deg) / 180
-  }
+  return (Math.PI * deg) / 180
+}
