@@ -1,12 +1,13 @@
 import Head from 'next/head'
-import { Grid } from '@geist-ui/react'
 import { css } from '@emotion/react'
 import { SolarSystem } from '../components/SolarSystem'
-import React from 'react'
+import { DatePicker } from '../components/DatePicker'
+import React, { useState } from 'react'
 
-const date = new Date()
+const initDate = new Date()
 
 export default function Home() {
+  const [date, setDate] = useState(initDate);
   return (
     <React.Fragment>
       <Head>
@@ -18,7 +19,9 @@ export default function Home() {
         <div css={solarSystemWrapper}>
           <SolarSystem date={date} />
         </div>
-        <div css={dateSelectorStyles}>TODO: Date Selector</div>
+        <div css={dateSelectorStyles}>
+          <DatePicker date={date} setDate={setDate} />
+        </div>
       </main>
     </React.Fragment>
   )
@@ -34,9 +37,12 @@ const wrapperStyles = css`
 
 const solarSystemWrapper = css`
   flex: 1 1 0px;
-  overflow:hidden;
+  overflow: hidden;
 `
 
 const dateSelectorStyles = css`
   flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
 `

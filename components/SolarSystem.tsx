@@ -18,15 +18,13 @@ interface RenderedPlanet {
   angle: number // deg
 }
 
-const tempDate = new Date(Date.now())
-
 export function SolarSystem({ date }: IProps) {
   const { ref, width = 100, height = 100 } = useResizeObserver()
   const center = [width / 2, height / 2]
 
   const fullR = Math.min(width / 2, height / 2) - SOLAR_PADDING
   const oneRingSize = fullR / PLANET_COUNT
-  const planetAngles = getPlanetAnglesFromDate(tempDate)
+  const planetAngles = getPlanetAnglesFromDate(date)
   const planets = Array.from(new Array(PLANET_COUNT)).map((_, i) => ({
     r: oneRingSize * (i + 1),
     angle: planetAngles[i],

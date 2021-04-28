@@ -1,0 +1,11 @@
+@import '~carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/theme-maps';
+
+// set the default theme
+$carbon--theme: $carbon--theme--g100;
+
+// build the default styling
+@import '~carbon-components/src/globals/scss/styles.scss';
+
+// @import '@carbon/themes/scss/themes';
+// // Use the gray 10 theme
+// @include carbon--theme($carbon--theme--g100);
