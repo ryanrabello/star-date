@@ -1,3 +1,4 @@
+import { animated, useSprings, to } from 'react-spring'
 import { css } from '@emotion/react'
 import moment from 'moment'
 import useResizeObserver from 'use-resize-observer/polyfilled'
@@ -26,16 +27,19 @@ export function SolarSystem({ date }: IProps) {
   const oneRingSize = fullR / PLANET_COUNT
   const planetAngles = getPlanetAnglesFromDate(date)
   const planets = Array.from(new Array(PLANET_COUNT)).map((_, i) => ({
+    from: { r: 0, angle: 0 },
     r: oneRingSize * (i + 1),
     angle: planetAngles[i],
+    config: { mass: 1, tension: 280, friction: 160 },
   }))
 
+  const springs = useSprings(planets.length, planets)
   return (
     <div ref={ref} css={wrapperStyles}>
       <svg width={'100%'} height={'100%'}>
-        {planets.map(({ r }, i) => {
+        {springs.map(({ r }, i) => {
           return (
-            <circle
+            <animated.circle
               key={i}
               cx={center[0]}
               cy={center[1]}
@@ -44,12 +48,15 @@ export function SolarSystem({ date }: IProps) {
             />
           )
         })}
-        {planets.map(({ r, angle }, i) => {
-          const x = Math.cos(angle) * r + center[0]
-          const y = -Math.sin(angle) * r + center[1]
-
-          return <circle key={i} cx={x} cy={y} r={10} css={planetStyles} />
-        })}
+        {springs.map(({ r, angle }, i) => (
+          <animated.circle
+            key={i}
+            cx={to([r, angle], (r, angle) => Math.cos(angle) * r + center[0])}
+            cy={to([r, angle], (r, angle) => -Math.sin(angle) * r + center[1])}
+            r={10}
+            css={planetStyles}
+          />
+        ))}
       </svg>
     </div>
   )
