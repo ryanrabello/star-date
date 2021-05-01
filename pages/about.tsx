@@ -73,7 +73,7 @@ export default function Home() {
 const wrapperStyles = css`
   width: min(100%, 700px);
   margin: auto;
-  padding: 5px;
+  padding: 15px;
   margin-top: 50px;
 
   h1,
