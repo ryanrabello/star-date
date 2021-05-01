@@ -27,7 +27,7 @@ export function SolarSystem({ date }: IProps) {
   const oneRingSize = fullR / PLANET_COUNT
   const planetAngles = getPlanetAnglesFromDate(date)
   const planets = Array.from(new Array(PLANET_COUNT)).map((_, i) => ({
-    from: { r: 0, angle: 0 },
+    from: { r: 0, angle: planetAngles[i] - Math.PI },
     r: oneRingSize * (i + 1),
     angle: planetAngles[i],
     config: { mass: 1, tension: 280, friction: 160 },

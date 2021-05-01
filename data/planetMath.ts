@@ -17,7 +17,8 @@ export function getPlanetAnglesFromDate(date: Date): number[] {
   const mDate = moment(date)
   const days = mDate.diff(initDate, 'days', true)
   const angles = planetData.map(({ initAngle, orbitDays }, i) => {
-    const percentOrbit = mod(days / orbitDays, 1);
+    // const percentOrbit = mod(days / orbitDays, 1);
+    const percentOrbit = days / orbitDays;
     const orbitRad = 2 * Math.PI * percentOrbit + initAngle
     return orbitRad
   })
