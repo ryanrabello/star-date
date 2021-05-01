@@ -1,6 +1,6 @@
-import { animated, useSprings, to } from 'react-spring'
 import { css } from '@emotion/react'
-import moment from 'moment'
+import { animated, useSprings, to } from 'react-spring'
+import React from 'react'
 import useResizeObserver from 'use-resize-observer/polyfilled'
 import {
   PLANET_COUNT,
@@ -35,7 +35,11 @@ export function SolarSystem({ date }: IProps) {
 
   const springs = useSprings(planets.length, planets)
   return (
-    <div ref={ref} css={wrapperStyles}>
+    <div
+      ref={ref}
+      //@ts-ignore
+      css={wrapperStyles}
+    >
       <svg width={'100%'} height={'100%'}>
         {springs.map(({ r }, i) => {
           return (
@@ -44,6 +48,7 @@ export function SolarSystem({ date }: IProps) {
               cx={center[0]}
               cy={center[1]}
               r={r}
+              //@ts-ignore
               css={orbitStyles}
             />
           )
@@ -54,6 +59,7 @@ export function SolarSystem({ date }: IProps) {
             cx={to([r, angle], (r, angle) => Math.cos(angle) * r + center[0])}
             cy={to([r, angle], (r, angle) => -Math.sin(angle) * r + center[1])}
             r={10}
+            //@ts-ignore
             css={planetStyles}
           />
         ))}

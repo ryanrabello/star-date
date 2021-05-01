@@ -32,8 +32,14 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main css={wrapperStyles}>
-        <div css={solarSystemStyles}>
+      <main
+        //@ts-ignore
+        css={wrapperStyles}
+      >
+        <div
+          //@ts-ignore
+          css={solarSystemStyles}
+        >
           <SolarSystem date={date} />
         </div>
         <h1>About</h1>

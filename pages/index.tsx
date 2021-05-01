@@ -7,7 +7,7 @@ import React, { useState } from 'react'
 const initDate = new Date()
 
 export default function Home() {
-  const [date, setDate] = useState(initDate);
+  const [date, setDate] = useState(initDate)
   return (
     <React.Fragment>
       <Head>
@@ -15,11 +15,20 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main css={wrapperStyles}>
-        <div css={solarSystemWrapper}>
+      <main
+        //@ts-ignore
+        css={wrapperStyles}
+      >
+        <div
+          //@ts-ignore
+          css={solarSystemWrapper}
+        >
           <SolarSystem date={date} />
         </div>
-        <div css={dateSelectorStyles}>
+        <div
+          //@ts-ignore
+          css={dateSelectorStyles}
+        >
           <DatePicker date={date} setDate={setDate} />
         </div>
       </main>
