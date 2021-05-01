@@ -11,16 +11,12 @@ import { debounce } from 'lodash'
 
 const sliderRange = [0, 1000]
 const now = new Date(Date.now())
-const past = moment(now).subtract(1, 'years')
-const future = moment(now).add(1, 'years')
+const past = moment(now).subtract(5, 'years').toDate()
+const future = moment(now).add(5, 'years').toDate()
+const scale = scaleTime().domain([past, future]).range(sliderRange).clamp(true)
 
 export function DatePicker({ date, setDate }) {
   // Setup slider
-  const scale = scaleTime()
-    .domain([past, future])
-    .range(sliderRange)
-    .clamp(true)
-  const sliderVal = scale(date)
   const handleSliderChange = useCallback(
     debounce(({ value }) => {
       setDate(scale.invert(value))
@@ -36,14 +32,7 @@ export function DatePicker({ date, setDate }) {
     }
   }, [])
   return (
-    <div
-      css={css`
-        /* max-width: 288px; */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      `}
-    >
+    <div css={wrapperStyles}>
       <div>
         <DatePickerCarbon
           datePickerType="single"
@@ -61,7 +50,8 @@ export function DatePicker({ date, setDate }) {
       <div>
         <Slider
           labelText=""
-          value={sliderVal}
+          // <Slider /> only update the slider when this value changes so we'll leave it this way
+          value={(sliderRange[1] - sliderRange[0]) / 2}
           onChange={handleSliderChange}
           min={sliderRange[0]}
           max={sliderRange[1]}
@@ -76,3 +66,9 @@ export function DatePicker({ date, setDate }) {
     </div>
   )
 }
+
+const wrapperStyles = css`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
