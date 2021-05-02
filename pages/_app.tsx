@@ -11,9 +11,13 @@ function MyApp({ Component, pageProps }) {
   return (
     <React.Fragment>
       <div style={{ position: 'absolute', top: 0, left: 0, padding: 10 }}>
-        <NextLink href={'/'}>
+        <NextLink href={'/'} as={'/'}>
           <a>
-            <Image src={'/stardate.svg'} height={'30px'} width={'200px'} />
+            <img
+              src={process.env.basePath + '/stardate.svg'}
+              height={'30px'}
+              width={'200px'}
+            />
           </a>
         </NextLink>
       </div>
@@ -26,7 +30,7 @@ function MyApp({ Component, pageProps }) {
         >
           <Code32 />
         </Link>
-        <NextLink href={'/about'} passHref>
+        <NextLink href={'/about'} passHref as={'/about'}>
           <Link css={navItemStyles} title="About this site">
             <Information32 />
           </Link>

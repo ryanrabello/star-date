@@ -1,4 +1,5 @@
 import { css } from '@emotion/react'
+import React from 'react'
 import {
   DatePicker as DatePickerCarbon,
   DatePickerInput,
@@ -32,7 +33,10 @@ export function DatePicker({ date, setDate }) {
     }
   }, [])
   return (
-    <div css={wrapperStyles}>
+    <div
+      //@ts-ignore
+      css={wrapperStyles}
+    >
       <div>
         <DatePickerCarbon
           datePickerType="single"

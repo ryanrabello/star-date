@@ -6,6 +6,9 @@ import React, { useState } from 'react'
 
 const initDate = new Date()
 
+// TODO: figure out why css props throw typescript errors
+// TOOD: Get deployments working 
+
 export default function Home() {
   const [date, setDate] = useState(initDate)
   return (
