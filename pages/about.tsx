@@ -29,7 +29,7 @@ export default function Home() {
     <React.Fragment>
       <Head>
         <title>About - Star Date</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href={process.env.basePath + "/favicon.ico"} />
       </Head>
 
       <main

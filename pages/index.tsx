@@ -15,7 +15,7 @@ export default function Home() {
     <React.Fragment>
       <Head>
         <title>Star Date</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href={process.env.basePath + "/favicon.ico"} />
       </Head>
 
       <main
