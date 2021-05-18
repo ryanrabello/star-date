@@ -12,11 +12,12 @@ function MyApp({ Component, pageProps }) {
     <React.Fragment>
       <div style={{ position: 'absolute', top: 0, left: 0, padding: 10 }}>
         <NextLink href={'/'} as={'/'}>
-          <a>
+          <a alt-label="Navigate to root">
             <img
               src={process.env.basePath + '/stardate.svg'}
               height={'30px'}
               width={'200px'}
+              alt="Star Date Logo"
             />
           </a>
         </NextLink>

@@ -5,6 +5,7 @@ import { Link } from 'carbon-components-react'
 import { SolarSystem } from '../components/SolarSystem'
 import { scaleTime } from 'd3'
 import moment from 'moment'
+import { CustomHead } from '../components/Head'
 
 const MAX = 100
 const now = new Date(Date.now())
@@ -28,10 +29,8 @@ export default function Home() {
   return (
     <React.Fragment>
       <Head>
-        <title>About - Star Date</title>
-        <link rel="icon" href={process.env.basePath + "/favicon.ico"} />
+        <CustomHead title={"About - StarDate"} />
       </Head>
-
       <main
         //@ts-ignore
         css={wrapperStyles}

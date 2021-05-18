@@ -3,19 +3,19 @@ import { css } from '@emotion/react'
 import { SolarSystem } from '../components/SolarSystem'
 import { DatePicker } from '../components/DatePicker'
 import React, { useState } from 'react'
+import { CustomHead } from '../components/Head'
 
 const initDate = new Date()
 
 // TODO: figure out why css props throw typescript errors
-// TOOD: Get deployments working 
+// TOOD: Get deployments working
 
 export default function Home() {
   const [date, setDate] = useState(initDate)
   return (
     <React.Fragment>
       <Head>
-        <title>Star Date</title>
-        <link rel="icon" href={process.env.basePath + "/favicon.ico"} />
+        <CustomHead />
       </Head>
 
       <main

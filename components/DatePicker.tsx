@@ -61,6 +61,7 @@ export function DatePicker({ date, setDate }) {
           max={sliderRange[1]}
           minLabel={() => 'Past'}
           maxLabel={() => 'Future'}
+          ariaLabel="Timeline slider. Past to future."
           step={1}
           stepMultiplier={10}
           novalidate
