@@ -16,7 +16,7 @@
   ],
   "theme_color": "#FFFFFF",
   "background_color": "#FFFFFF",
-  "start_url": "http://localhost:3000/",
+  "start_url": "https://asteroidice.github.io/star-date/",
   "display": "standalone",
   "orientation": "portrait"
 }
