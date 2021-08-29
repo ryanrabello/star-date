@@ -52,7 +52,7 @@ export default function Home() {
           Note, you probably shouldn't use this if you work at NASA. The math
           under the hood assumes our solar system is 2D and that the planets
           follow a perfect circle. I also haven't addressed any precision issues
-          with JavsScript so viewing dates like when the sun will explode will
+          with JavaScript so viewing dates like when the sun will explode will
           likely not work. I have a feeling this tool is only accurate to ±100
           years from Jan 01 2000. If you need something more accurate checkout a{' '}
           <Link href="https://in-the-sky.org/solarsystem.php" target="_BLANK">
@@ -64,7 +64,7 @@ export default function Home() {
         <p>
           This site uses Nextjs, React, SVG and react-spring. Nextjs handles
           compiling and the app into static and re-hyrdratable assets. React
-          handles renering elemtns to the DOM and storing the state of things
+          handles rendering elements to the DOM and storing the state of things
           (like the date to visualize). SVG is used for rendering the view of
           the solar system (with infinite resolution). React-spring is used for
           animating dom attributes in react according to physics based springs.
