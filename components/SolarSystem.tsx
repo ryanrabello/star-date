@@ -49,7 +49,10 @@ export function SolarSystem({ date }: IProps) {
               cy={center[1]}
               r={r}
               //@ts-ignore
-              css={orbitStyles}
+              // css={orbitStyles}
+              stroke={"white"}
+              strokeWidth={2}
+              fill="transparent"
             />
           )
         })}
@@ -59,8 +62,9 @@ export function SolarSystem({ date }: IProps) {
             cx={to([r, angle], (r, angle) => Math.cos(angle) * r + center[0])}
             cy={to([r, angle], (r, angle) => -Math.sin(angle) * r + center[1])}
             r={10}
+            fill="white"
             //@ts-ignore
-            css={planetStyles}
+            // css={planetStyles}
           />
         ))}
       </svg>
