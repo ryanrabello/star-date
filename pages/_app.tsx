@@ -1,19 +1,53 @@
 import Image from 'next/image'
 import NextLink from 'next/link'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Code32, Information32, User32 } from '@carbon/icons-react'
 import { Link } from 'carbon-components-react'
 import { css } from '@emotion/react'
+import { PowerGlitch } from 'powerglitch'
 
 import '../styles/globals.scss'
 
 function MyApp({ Component, pageProps }) {
+  useEffect(() => {
+    PowerGlitch.glitch('#logo', {
+      timing: {
+        duration: 3000,
+        iterations: Infinity,
+      },
+      glitchTimeSpan: {
+        start: 0.4,
+        end: 0.5,
+      },
+      slice: {
+        count: 4,
+            velocity: 10,
+            minHeight: 0.09,
+            maxHeight: 0.70,
+            hueRotate: true,
+      }
+      // shake: {
+      //   velocity: 10,
+      //   amplitudeX: 0.4,
+      //   amplitudeY: 0.4,
+      // },
+      // slice: {
+      //   count: 4,
+      //   velocity: 10,
+      //   minHeight: 0.02,
+      //   maxHeight: 0.40,
+      //   hueRotate: true,
+      // }
+    });
+  }, []);
+
   return (
     <React.Fragment>
       <div style={{ position: 'absolute', top: 0, left: 0, padding: 10 }}>
         <NextLink href={'/'} as={'/'}>
           <a alt-label="Navigate to root">
             <img
+              id="logo"
               src={process.env.basePath + '/stardate.svg'}
               height={'30px'}
               width={'200px'}

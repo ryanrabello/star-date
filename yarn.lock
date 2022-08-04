@@ -4694,6 +4694,11 @@ postcss@8.2.13:
     nanoid "^3.1.22"
     source-map "^0.6.1"
 
+powerglitch@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/powerglitch/-/powerglitch-1.1.0.tgz#d473928299ccf70edc69e34f8e14ce912332c21b"
+  integrity sha512-nf+K4x4vWqHhOMuuOKpDHMlx0KYuNs/y5FmsLaRVW4pBvXV+R9M0CZbhPztRVXcdGKEUJjoeuQLl/odQJj6WQA==
+
 prelude-ls@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.2.1.tgz#debc6489d7a6e6b0e7611888cec880337d316396"
